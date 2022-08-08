@@ -146,8 +146,7 @@
       myservo.write(70);     
       digitalWrite(fan, HIGH);
       digitalWrite(rojo_temp_pin, HIGH);
-      delay(100);
-      digitalWrite(rojo_temp_pin, LOW);
+     
    }
   
     if (TempC < (27 - histeresisT))
