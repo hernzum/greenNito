@@ -11,6 +11,7 @@
     Soil sensor  pin---> A2 --> commercial
     DIYSoil sensor pin---> A2 ---> DIY
   */
+
   #include <LM35.h> // LM35DT -- version Latest
   #include <Servo.h>   // Servo - Version: Latest 
   int rojo_temp_pin = 8; //led rojo para mostar temp sobre 27 grados
