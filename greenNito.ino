@@ -16,7 +16,7 @@
   #include <Servo.h>   // Servo - Version: Latest 
   int rojo_temp_pin = 8; //led rojo para mostar temp sobre 27 grados
   int verde_mojado_pin = 7; // led verde para para mostar q esta regado
-  int amarillo_luz_pin = 6; // led amarillo mostrar q necesita agua
+  int amarillo_luz_pin = 6; // led amarillo mostrar q falta luz
   int pump = 2;
   int fan = 3;
   int luz = 4;
@@ -51,7 +51,6 @@
   }
   
   void loop() {
-  
       
     //----------------Testea la humedad de la tierra------------//
     
@@ -60,10 +59,7 @@
       moistureSampling();
       moistureTest = millis();
     }
-  
-    //------------------Fin testeo Humedad de la tierra----//
-  
-  
+   
     //------------------ Testea la Cantidad de Luz--------------//
   
     if (millis() - ldrTest > 3000UL)  // Sondeamos la luz cada 3 segundos
@@ -71,16 +67,14 @@
       detector_luz();
       ldrTest = millis();
     }
-    //-------------------Fin testeo cantidad de luz------//
-     //----------------Testea la Temperatura------------//
+    
+    //----------------Testea la Temperatura------------//
   
       if (millis() - sampleTemp > 5000UL)  // Sondeamos la temperatura cada  5 segundos
       {
       SamplingTemp();
       sampleTemp = millis();
       }
-  
-      //------------------Fin testeo Temperatura----//
     
     //---------- Muestra los datos en la com serial -------//
   
@@ -88,11 +82,10 @@
     Serial.println(" lux");
     Serial.print(SoilSensor);
     Serial.println(" % humedad");
-    Serial.print(TempC);                            // Print the temperature in the Serial Monitor:
-    Serial.print(" \xC2\xB0");                        // shows degree symbol
+    Serial.print(TempC);           // Print the temperature in the Serial Monitor:
+    Serial.print(" \xC2\xB0");    // shows degree symbol
     Serial.println("C");
-    //Serial.println(soil);
-   
+    
   }
   
   void moistureSampling () { // Rutina para sondear la humedad de la tierra.
