@@ -16,7 +16,7 @@
   #include <Servo.h>   // Servo - Version: Latest 
   int rojo_temp_pin = 8; //led rojo para mostar temp sobre 27 grados
   int verde_mojado_pin = 7; // led verde para para mostar q esta regado
-  int amarillo_seco_pin = 6; // led amarillo mostrar q necesita agua
+  int amarillo_luz_pin = 6; // led amarillo mostrar q necesita agua
   int pump = 2;
   int fan = 3;
   int luz = 4;
@@ -124,9 +124,9 @@
   if (Ldr < 60)
     {
     digitalWrite(luz, HIGH);
-    digitalWrite(amarillo_seco_pin, HIGH);
+    digitalWrite(amarillo_luz_pin, HIGH);
     delay(100);
-    digitalWrite(amarillo_seco_pin, LOW);
+    digitalWrite(amarillo_luz_pin, LOW);
   }
   if (Ldr > (60 - histeresisL))
   
