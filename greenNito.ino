@@ -105,14 +105,12 @@
     if (SoilSensor < 30) // Si el sensor detecta menos de 30%H
     {
       digitalWrite(pump, HIGH);
-     // digitalWrite(amarillo_seco_pin, HIGH);
       digitalWrite(verde_mojado_pin, HIGH);
       
     }
     if (SoilSensor > (30 + histeresisH))// Si detecta mas de 90%H
     {
       digitalWrite(pump, LOW);
-      digitalWrite(amarillo_seco_pin, LOW);
       digitalWrite(verde_mojado_pin, HIGH);
       delay(100);
       digitalWrite(verde_mojado_pin, LOW);
@@ -134,7 +132,7 @@
   
   {
     digitalWrite(luz, LOW);
-    digitalWrite(rojo_temp_pin, LOW);
+    digitalWrite(amarillo_seco_pin, LOW);
   }
   
   
